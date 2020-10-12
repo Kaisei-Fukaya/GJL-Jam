@@ -9,9 +9,9 @@ public class PlayerCamera : MonoBehaviour
     public float cameraSensitivity;
 
     [SerializeField] Camera _camera;
-    [SerializeField] float _minFov;
-    [SerializeField] float _maxFov;
-    [SerializeField] float _tiltSpeed;
+    [SerializeField] float _minFov = 75f;
+    [SerializeField] float _maxFov = 110f;
+    [SerializeField] float _tiltSpeed = 10f;
     PlayerInput _pInput;
     Rigidbody _rb;
     Vector3 _currentPlayerRotation, _currentCameraRotation;

@@ -10,15 +10,18 @@ public class PlayerMovement : MonoBehaviour
     public float decelerationSpeed;
     public float jumpPower;
     public float jumpBonusAmount;
+    public float airDrag;
     public LayerMask groundMask;
     float _moveSpeed;
     float _momentumMultiplier;
-    float _timeSinceGrounded;
+    float _timeSinceLanded;
     float _jumpBonus;
     bool _isGrounded;
+    bool _frameOfJumpFlag;
+    Vector3 _lastVelocity;
     PlayerInput _pInput;
     Rigidbody _rb;
-    [SerializeField] float _cameraTiltDegrees;
+    [SerializeField] float _cameraTiltDegrees = 5f;
 
     private void Start()
     {
@@ -34,12 +37,12 @@ public class PlayerMovement : MonoBehaviour
         if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z), -transform.up, 0.2f, groundMask))
         {
             _isGrounded = true;
-            _timeSinceGrounded += Time.deltaTime;
+            _timeSinceLanded += Time.deltaTime;
         }
         else
         {
             _isGrounded = false;
-            _timeSinceGrounded = 0f;
+            _timeSinceLanded = 0f;
         }
 
         //Handle movement
@@ -79,9 +82,9 @@ public class PlayerMovement : MonoBehaviour
         if (_pInput.JumpPressed && _isGrounded)
         {
             //Jump
-            if(_timeSinceGrounded < 0.5f)
+            if(_timeSinceLanded < 0.1f)
             {
-                _jumpBonus += jumpBonusAmount;                                                                       //Bonus Added for jumping soon after landing
+                _jumpBonus += jumpBonusAmount;                                                          //Bonus Added for jumping soon after landing
             }
             else
             {
@@ -91,6 +94,9 @@ public class PlayerMovement : MonoBehaviour
 
             //Reset flag
             _pInput.ResetJump();
+
+            //Flag jumped
+            _frameOfJumpFlag = true;
         }
 
         //Set velocity
@@ -102,8 +108,25 @@ public class PlayerMovement : MonoBehaviour
         currentVelocity = Vector3.ClampMagnitude(currentVelocity, _moveSpeed);                          //Clamp magnitude so that moving diagonally is not faster
         currentVelocity.y = _rb.velocity.y;                                                             //Re-combine with vertical velocity
 
-        _rb.velocity = currentVelocity;
+        if (_isGrounded)
+        {
+            _rb.velocity = currentVelocity;
+        }
+        else if(!_frameOfJumpFlag)
+        {
+            currentVelocity.x = currentVelocity.x / 2;
+            currentVelocity.z = currentVelocity.z / 2;
+            _rb.velocity = _lastVelocity + currentVelocity;
 
+            //Air drag
+            _lastVelocity -= _lastVelocity * airDrag * Time.fixedDeltaTime;
+        }
+        else
+        {
+            _lastVelocity = currentVelocity;                                                    //store velocity just before jumping
+            _lastVelocity.y = 0f;
+            _frameOfJumpFlag = false;
+        }
     }
 
     float GetPercentageMomentum()
