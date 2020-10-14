@@ -5,6 +5,7 @@ using UnityEngine;
 public class AreaLoadManager : MonoBehaviour
 {
     [SerializeField] GameObject[] _areaPrefabs;
+    List<GameObject> _currentAreas;
 
     public static AreaLoadManager Instance { get; private set; }
 
@@ -18,10 +19,40 @@ public class AreaLoadManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        _currentAreas = new List<GameObject>();
+        //TEST
+        if (GameObject.Find("Area_Street_Section1"))
+        {
+            _currentAreas.Add(GameObject.Find("Area_Street_Section1"));
+        }
     }
 
-    public void LoadArea(GameObject newArea, AreaMountPoint mountPoint)
+    public void LoadNextArea(AreaMountPoint mountPoint)
     {
+        print("loadNextArea");
+        GameObject areaToLoad = _areaPrefabs[Random.Range(0, _areaPrefabs.Length)];
 
+        LoadArea(areaToLoad, mountPoint);
+
+        //Remove the first area in the list (oldest)
+        if(_currentAreas.Count > 7)
+        {
+            RemoveArea(0);
+        }
+    }
+
+    void LoadArea(GameObject areaToLoad, AreaMountPoint mountPoint)
+    {
+        var newArea = Instantiate(areaToLoad);
+        newArea.transform.position = mountPoint.transform.position;
+        newArea.transform.rotation = mountPoint.transform.rotation;
+        _currentAreas.Add(newArea);
+    }
+
+    void RemoveArea(int areaIndex)
+    {
+        Destroy(_currentAreas[areaIndex]);
+        _currentAreas.RemoveAt(areaIndex);
     }
 }
