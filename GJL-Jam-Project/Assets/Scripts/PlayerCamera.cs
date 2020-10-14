@@ -9,6 +9,8 @@ public class PlayerCamera : MonoBehaviour
     public float cameraSensitivity;
 
     [SerializeField] Camera _camera;
+    [SerializeField] GameObject _viewModel;
+    [SerializeField] GameObject _viewModelCam;
     [SerializeField] float _minFov = 75f;
     [SerializeField] float _maxFov = 110f;
     [SerializeField] float _tiltSpeed = 10f;
@@ -53,6 +55,18 @@ public class PlayerCamera : MonoBehaviour
 
         //Assign rotation to camera
         _camera.transform.localRotation = Quaternion.Euler(_currentCameraRotation);
+
+        //Match Viewmodel
+        if (_viewModel)
+        {
+            //Position
+            _viewModel.transform.position = _camera.transform.position;
+
+            //Rotation
+            _viewModel.transform.rotation = _camera.transform.rotation;
+            var viewModelYRot = new Vector3(_currentCameraRotation.x * 0.2f, _viewModelCam.transform.localEulerAngles.y, _viewModelCam.transform.localEulerAngles.z);
+            _viewModelCam.transform.localRotation = Quaternion.Euler(viewModelYRot);
+        }
     }
 
     public void SetFOV(float newFOV)

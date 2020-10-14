@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     public Vector3 MovementInput { get; private set; }
     public bool IsPressingMovementKey { get; private set; }
     public bool JumpPressed { get; private set; }
+    public bool CrouchPressed { get; private set; }
     public Vector3 CameraInput { get; private set; }
 
     float _timeSinceJumpPressed;
@@ -27,13 +28,23 @@ public class PlayerInput : MonoBehaviour
         MovementInput = new Vector3(moveX, 0f, moveZ);
 
         //Store if pressing movement key
-        if(Input.GetAxisRaw("Horizontal") != 0f || Input.GetAxisRaw("Vertical") != 0f)
+        if (Input.GetAxisRaw("Horizontal") != 0f || Input.GetAxisRaw("Vertical") != 0f)
         {
             IsPressingMovementKey = true;
         }
         else
         {
             IsPressingMovementKey = false;
+        }
+
+        //Store crouch input
+        if (Input.GetButton("Crouch"))
+        {
+            CrouchPressed = true;
+        }
+        else
+        {
+            CrouchPressed = false;
         }
 
         //Store if jump key pressed this frame
@@ -54,6 +65,7 @@ public class PlayerInput : MonoBehaviour
         {
             _timeSinceJumpPressed += Time.deltaTime;
         }
+
         if (_timeSinceJumpPressed > 0.5f)
         {
             ResetJump();
@@ -61,8 +73,5 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    public void ResetJump()
-    {
-        JumpPressed = false;
-    }
+    public void ResetJump() => JumpPressed = false;
 }
