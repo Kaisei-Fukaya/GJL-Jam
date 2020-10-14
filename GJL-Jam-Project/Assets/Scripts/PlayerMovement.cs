@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         _moveSpeed = baseMoveSpeed * (_momentumMultiplier + _jumpBonus/10f);
 
         //Increase momentum until max speed, reset when not moving
-        if (_pInput.IsPressingMovementKey && currentVelocity.magnitude > 0.1f)
+        if (_pInput.IsPressingMovementKey && currentVelocity.magnitude > 0.1f && !_isSliding)
         {
             if (_momentumMultiplier < maxMomentum)
             {

@@ -31,6 +31,12 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") != 0f || Input.GetAxisRaw("Vertical") != 0f)
         {
             IsPressingMovementKey = true;
+            float forwardMovement = moveZ;
+            if(forwardMovement < 0f)
+            {
+                forwardMovement = 0f;
+            }
+            PlayerAnimationController.Instance.SetAnimatorParameter("forwardMovement", forwardMovement);
         }
         else
         {
