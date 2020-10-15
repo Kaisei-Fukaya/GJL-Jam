@@ -6,10 +6,10 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     public Vector3 MovementInput { get; private set; }
+    public Vector3 CameraInput { get; private set; }
     public bool IsPressingMovementKey { get; private set; }
     public bool JumpPressed { get; private set; }
     public bool CrouchPressed { get; private set; }
-    public Vector3 CameraInput { get; private set; }
 
     float _timeSinceJumpPressed;
 
@@ -20,6 +20,32 @@ public class PlayerInput : MonoBehaviour
     }
 
     void Update()
+    {
+        if (!UIManager.Instance.IsPaused)
+        {
+            if(Cursor.lockState != CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+
+            UpdateLogic();
+        }
+        else
+        {
+            ClearAllInputs();
+        }
+    }
+
+    void ClearAllInputs()
+    {
+        MovementInput = Vector3.zero;
+        CameraInput = Vector3.zero;
+        IsPressingMovementKey = false;
+        JumpPressed = false;
+        CrouchPressed = false;
+    }
+
+    void UpdateLogic()
     {
         //Store Movement Input
         float moveX = Input.GetAxis("Horizontal");
@@ -32,7 +58,7 @@ public class PlayerInput : MonoBehaviour
         {
             IsPressingMovementKey = true;
             float forwardMovement = moveZ;
-            if(forwardMovement < 0f)
+            if (forwardMovement < 0f)
             {
                 forwardMovement = 0f;
             }

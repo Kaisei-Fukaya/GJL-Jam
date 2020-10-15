@@ -29,4 +29,9 @@ public class MenuManager : MonoBehaviour
         panel.SetActive(!panel.activeInHierarchy);
         return panel.activeInHierarchy;
     }
+
+    public void SetPanelActiveState(GameObject panel, bool state)
+    {
+        panel.SetActive(state);
+    }
 }
