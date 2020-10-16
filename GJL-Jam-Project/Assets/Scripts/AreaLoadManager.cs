@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,10 +29,11 @@ public class AreaLoadManager : MonoBehaviour
         }
     }
 
-    public void LoadNextArea(AreaMountPoint mountPoint)
+    public void LoadNextArea(AreaMountPoint mountPoint, GameObject areaToLoad)
     {
         print("loadNextArea");
-        GameObject areaToLoad = _areaPrefabs[Random.Range(0, _areaPrefabs.Length)];
+        ////Randomisation
+        //GameObject areaToLoad = _areaPrefabs[Random.Range(0, _areaPrefabs.Length)];
 
         LoadArea(areaToLoad, mountPoint);
 
@@ -40,6 +42,11 @@ public class AreaLoadManager : MonoBehaviour
         {
             RemoveArea(0);
         }
+    }
+
+    internal void LoadNextArea(AreaMountPoint m, object nextArea)
+    {
+        throw new NotImplementedException();
     }
 
     void LoadArea(GameObject areaToLoad, AreaMountPoint mountPoint)

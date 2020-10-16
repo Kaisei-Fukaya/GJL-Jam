@@ -62,6 +62,9 @@ public class UIManager : MonoBehaviour
     public void SetPauseState(bool state)
     {
         IsPaused = state;
-        MenuManager.Instance.SetPanelActiveState(_pausePanel, state);
+        if (!GameManager.Instance.GameEnded)
+        {
+            MenuManager.Instance.SetPanelActiveState(_pausePanel, state);
+        }
     }
 }

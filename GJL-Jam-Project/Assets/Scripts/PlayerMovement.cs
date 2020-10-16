@@ -54,10 +54,15 @@ public class PlayerMovement : MonoBehaviour
         Physics.gravity = new Vector3(0f, Physics.gravity.y * 2.8f, 0f);
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), 0.5f);
+    }
+
     private void FixedUpdate()
     {
         //Check grounded
-        if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z), -transform.up, 0.2f, groundMask))
+        if(Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z), 0.5f, groundMask).Length != 0)
         {
             _isGrounded = true;
             _timeSinceLanded += Time.deltaTime;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 23149671871036810}
   m_Layer: 8
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints: []
+  enemySpawnPoints: []
 --- !u!1 &23149673037992928
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +341,7 @@ GameObject:
   - component: {fileID: 3340381624253168636}
   m_Layer: 0
   m_Name: Side (1)
-  m_TagString: Untagged
+  m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -572,7 +573,7 @@ GameObject:
   - component: {fileID: 5594718596970886991}
   m_Layer: 0
   m_Name: Side
-  m_TagString: Untagged
+  m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

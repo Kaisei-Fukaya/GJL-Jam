@@ -60,7 +60,9 @@ public class PlayerCamera : MonoBehaviour
         if (_viewModel)
         {
             //Position
-            _viewModel.transform.position = _camera.transform.position;
+            var newVMPos = _camera.transform.position;
+            newVMPos.y -= 1f;
+            _viewModel.transform.position = newVMPos;
 
             //Rotation
             _viewModel.transform.rotation = _camera.transform.rotation;

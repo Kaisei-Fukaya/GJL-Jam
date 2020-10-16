@@ -5,18 +5,20 @@ using System.Linq;
 
 public class PropSpawner : MonoBehaviour
 {
-    [SerializeField] EnvironmentSpawnPoint[] spawnPoints;
+    public EnvironmentSpawnPoint[] spawnPoints;
+    public EnvironmentSpawnPoint[] enemySpawnPoints;
 
     private void Start()
     {
         //test
-        Spawn(6);
+        Spawn(6, spawnPoints);
+        Spawn(2, enemySpawnPoints);
     }
 
     //Only to be called one in lifetime
-    public void Spawn(int nOfObstacles)
+    public void Spawn(int nOfObstacles, EnvironmentSpawnPoint[] sPoints)
     {
-        List<EnvironmentSpawnPoint> spawnPointPool = spawnPoints.ToList();
+        List<EnvironmentSpawnPoint> spawnPointPool = sPoints.ToList();
         if(nOfObstacles > spawnPointPool.Count)
         {
             nOfObstacles = spawnPointPool.Count;                                                            //Cap number of obstacles to size of pool

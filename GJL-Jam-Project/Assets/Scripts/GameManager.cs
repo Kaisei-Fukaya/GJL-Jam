@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
     public bool GameGoing { get; private set; }
+    public bool GameEnded { get; private set; } = false;
+
+    [SerializeField] CanvasGroup _blackScreen;
+    [SerializeField] GameObject _gameOverPanel;
+    Coroutine lerpCoroutine;
 
     private void Awake()
     {
@@ -18,6 +24,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        _gameOverPanel.SetActive(false);
     }
 
     private void Update()
@@ -33,6 +41,10 @@ public class GameManager : MonoBehaviour
 
             }
         }
+        else
+        {
+
+        }
     }
 
     //Starts the timer and score tracking
@@ -46,6 +58,26 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         GameGoing = false;
+        GameEnded = true;
+        lerpCoroutine = StartCoroutine(LerpValueOverTime(0, 1, _blackScreen, 1f));
+        PlayerInput.Instance.enabled = false;
+        UIManager.Instance.SetPauseState(true);
+        MenuManager.Instance.SetPanelActiveState(_gameOverPanel, true);
+    }
+
+
+    IEnumerator LerpValueOverTime(float valA, float valB, CanvasGroup cg, float timeScale)
+    {
+        cg.alpha = valA;
+        while (true)
+        {
+            cg.alpha = Mathf.Lerp(cg.alpha, valB, timeScale * Time.deltaTime);
+            if(cg.alpha == valB)
+            {
+                break;
+            }
+            yield return null;
+        }
     }
 
 

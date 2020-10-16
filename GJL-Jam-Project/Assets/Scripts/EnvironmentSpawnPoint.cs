@@ -15,7 +15,7 @@ public class EnvironmentSpawnPoint : MonoBehaviour
         objectsToSpawnMeshes = new Mesh[objectsToSpawn.Length];
         for (int i = 0; i < objectsToSpawnMeshes.Length; i++)
         {
-            objectsToSpawnMeshes[i] = objectsToSpawn[i].GetComponent<MeshFilter>().sharedMesh;
+            objectsToSpawnMeshes[i] = objectsToSpawn[i].GetComponentInChildren<MeshFilter>().sharedMesh;
         }
         //print("AWAKE");
     }

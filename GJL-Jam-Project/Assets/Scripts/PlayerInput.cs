@@ -14,6 +14,22 @@ public class PlayerInput : MonoBehaviour
     float _timeSinceJumpPressed;
 
 
+    public static PlayerInput Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
+
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -63,6 +79,7 @@ public class PlayerInput : MonoBehaviour
                 forwardMovement = 0f;
             }
             PlayerAnimationController.Instance.SetAnimatorParameter("forwardMovement", forwardMovement);
+            PlayerData.Instance.ReduceBattery(1f * Time.deltaTime);
         }
         else
         {

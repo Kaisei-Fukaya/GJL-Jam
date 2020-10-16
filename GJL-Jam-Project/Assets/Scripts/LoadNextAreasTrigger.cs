@@ -13,6 +13,8 @@ public class LoadNextAreasTrigger : MonoBehaviour
 
     bool _hasTriggered = false;
 
+    [SerializeField] GameObject _nextArea;
+
     private void Start()
     {
         invisWall.SetActive(false);
@@ -35,7 +37,7 @@ public class LoadNextAreasTrigger : MonoBehaviour
             print("triggerLoad " + enabled);
             foreach (var m in mountPoints)
             {
-                _areaLoadManager.LoadNextArea(m);
+                _areaLoadManager.LoadNextArea(m, _nextArea);
             }
 
             //Enable invis wall to stop backtracking

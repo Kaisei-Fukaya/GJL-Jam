@@ -9,6 +9,7 @@ public class PostProcessingController : MonoBehaviour
     public static PostProcessingController Instance { get; private set; }
     [SerializeField] Volume _volume;
     Vignette _vignette;
+    ChromaticAberration _chromaticAberration;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class PostProcessingController : MonoBehaviour
     {
         //Cache PP parameters
         _volume.profile.TryGet(out _vignette);
+        _volume.profile.TryGet(out _chromaticAberration);
     }
 
     public void SetVignetteIntensity(float value)
@@ -33,5 +35,9 @@ public class PostProcessingController : MonoBehaviour
         _vignette.intensity.value = value;
     }
 
+    public void SetChromaticAberrationIntensity(float value)
+    {
+        _chromaticAberration.intensity.value = value;
+    }
 
 }
