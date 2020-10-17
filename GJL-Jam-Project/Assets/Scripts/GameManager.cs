@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public bool GameGoing { get; private set; }
     public bool GameEnded { get; private set; } = false;
+    public float yBound;
 
     [SerializeField] CanvasGroup _blackScreen;
     [SerializeField] GameObject _gameOverPanel;
@@ -44,6 +45,11 @@ public class GameManager : MonoBehaviour
         else
         {
 
+        }
+
+        if (PlayerInput.Instance.transform.position.y < yBound && !GameEnded)
+        {
+            GameOver();
         }
     }
 

@@ -8,11 +8,13 @@ public class PropSpawner : MonoBehaviour
     public EnvironmentSpawnPoint[] spawnPoints;
     public EnvironmentSpawnPoint[] enemySpawnPoints;
 
+    public int pickupsToSpawn = 3, enemiesToSpawn = 2;
+
     private void Start()
     {
         //test
-        Spawn(6, spawnPoints);
-        Spawn(2, enemySpawnPoints);
+        Spawn(pickupsToSpawn, spawnPoints);
+        Spawn(enemiesToSpawn, enemySpawnPoints);
     }
 
     //Only to be called one in lifetime

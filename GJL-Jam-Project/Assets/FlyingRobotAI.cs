@@ -16,6 +16,8 @@ public class FlyingRobotAI : MonoBehaviour
     [SerializeField] GameObject _projectilePrefab;
     [SerializeField] GameObject _deathEffect;
     [SerializeField] GameObject _shotPoint;
+    [SerializeField] GameObject _shootingChargeUpObject;
+    [SerializeField] float _targetChargeUpScale = 4f;
     Vector3 _targetLocation;
     Vector3 _moveDir;
     Vector3 _lookDir;
@@ -23,6 +25,8 @@ public class FlyingRobotAI : MonoBehaviour
     float _shotTimer;
     bool _inViewOfPlayer;
     bool _canFire;
+    bool _isShooting;
+
 
     PlayerInput player;
 
@@ -113,18 +117,23 @@ public class FlyingRobotAI : MonoBehaviour
 
     void Shoot()
     {
-        var newProjectile = Instantiate(_projectilePrefab);
-        newProjectile.transform.rotation = transform.rotation;
-        newProjectile.transform.position = _shotPoint.transform.position;
-        print("shot");
+        if (_isShooting)
+        {
+            return;
+        }
+        else
+        {
+            _isShooting = true;
+            StartCoroutine(Shooting());
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        print(_rb.velocity.magnitude + " Collision!");
-        if (collision.transform.tag == "Surface" && _rb.velocity.magnitude > forceDeathThreshold)
+        //print(_rb.velocity.magnitude + " Collision! " + collision.transform.gameObject.layer);
+        if (collision.transform.gameObject.layer == 8 && _rb.velocity.magnitude > forceDeathThreshold)
         {
-            print(_rb.velocity.magnitude + " Destroyed!");
+            //print(_rb.velocity.magnitude + " Destroyed!");
             //Smashed!
             DestroyBot();
         }
@@ -135,5 +144,47 @@ public class FlyingRobotAI : MonoBehaviour
         var dEffect = Instantiate(_deathEffect);
         dEffect.transform.position = transform.position;
         Destroy(gameObject);
+    }
+
+    IEnumerator Shooting()
+    {
+        bool fullyCharged = false;
+        float chargeMax = timeBetweenShots;
+        float charge = 0f;
+        float initialChargeUpScale = _shootingChargeUpObject.transform.localScale.x;
+
+        while (_isShooting)
+        {
+            if (UIManager.Instance.IsPaused)
+            {
+                _shootingChargeUpObject.transform.localScale = new Vector3(initialChargeUpScale, initialChargeUpScale, initialChargeUpScale);
+                _isShooting = false;
+            }
+            if (fullyCharged)
+            {
+                var newProjectile = Instantiate(_projectilePrefab);
+                newProjectile.transform.rotation = transform.rotation;
+                newProjectile.transform.position = _shotPoint.transform.position;
+                _isShooting = false;
+                _shootingChargeUpObject.transform.localScale = new Vector3(initialChargeUpScale, initialChargeUpScale, initialChargeUpScale);
+                //print("shot");
+            }
+            else
+            {
+                charge += Time.deltaTime;
+                var newScale = PercentageOf(0f, chargeMax, charge) * _targetChargeUpScale;
+                _shootingChargeUpObject.transform.localScale = new Vector3(newScale, newScale, newScale);
+                if (charge >= chargeMax)
+                {
+                    fullyCharged = true;
+                }
+            }
+            yield return null;
+        }
+    }
+
+    float PercentageOf(float min, float max, float valueBetween)
+    {
+        return Mathf.InverseLerp(min, max, valueBetween);
     }
 }

@@ -387,7 +387,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -485,6 +485,7 @@ MonoBehaviour:
   - {fileID: 23149671886657587}
   - {fileID: 23149673037992930}
   invisWall: {fileID: 6835864367378801136}
+  _nextArea: {fileID: 0}
 --- !u!1 &5145331631409870459
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +620,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

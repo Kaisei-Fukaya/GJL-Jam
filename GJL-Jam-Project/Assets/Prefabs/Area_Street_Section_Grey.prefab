@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -190,6 +190,47 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8309964813837108134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502941837606006318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d617cb3ba5c6d49b3b4ae8893443f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userDefinedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2977001135413714765}
+        m_TargetAssemblyTypeName: SkyboxSwitcher, Assembly-CSharp
+        m_MethodName: SwitchSkybox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  tagToCheck: Player
+--- !u!114 &2977001135413714765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502941837606006318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4cedc7c6b337e41bb8d56633e5df55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skybox: {fileID: 2100000, guid: 43f12173d7313b3428c2b13d41e8ebbb, type: 2}
 --- !u!1 &3853507955505871324
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +291,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -345,7 +386,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -440,7 +481,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -535,7 +576,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -630,7 +671,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -725,7 +766,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -831,6 +872,10 @@ PrefabInstance:
       propertyPath: mountPoints.Array.data[0]
       value: 
       objectReference: {fileID: 3265131357896518196}
+    - target: {fileID: 857445265678474399, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: _nextArea
+      value: 
+      objectReference: {fileID: 8826991049974578080, guid: 5d6a8b316e4cb4948a2af35636ca99d0, type: 3}
     - target: {fileID: 7720081776581279997, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
       propertyPath: spawnPoints.Array.size
       value: 0
@@ -889,6 +934,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3048a427571604d8aac2d6f557ae3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7502941837606006318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4980384100219983864, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+  m_PrefabInstance: {fileID: 3243204344005376470}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3760183000931177620
 PrefabInstance:
   m_ObjectHideFlags: 0

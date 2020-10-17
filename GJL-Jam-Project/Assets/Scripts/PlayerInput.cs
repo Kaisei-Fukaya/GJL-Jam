@@ -37,7 +37,7 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        if (!UIManager.Instance.IsPaused)
+        if (!UIManager.Instance.IsPaused && !GameManager.Instance.GameEnded)
         {
             if(Cursor.lockState != CursorLockMode.Locked)
             {
@@ -69,6 +69,12 @@ public class PlayerInput : MonoBehaviour
 
         MovementInput = new Vector3(moveX, 0f, moveZ);
 
+        //Reduce Battery
+        if (GameManager.Instance.GameGoing)
+        {
+            PlayerData.Instance.ReduceBattery(1f * Time.deltaTime);
+        }
+
         //Store if pressing movement key
         if (Input.GetAxisRaw("Horizontal") != 0f || Input.GetAxisRaw("Vertical") != 0f)
         {
@@ -79,7 +85,7 @@ public class PlayerInput : MonoBehaviour
                 forwardMovement = 0f;
             }
             PlayerAnimationController.Instance.SetAnimatorParameter("forwardMovement", forwardMovement);
-            PlayerData.Instance.ReduceBattery(1f * Time.deltaTime);
+            //PlayerData.Instance.ReduceBattery(1f * Time.deltaTime);
         }
         else
         {

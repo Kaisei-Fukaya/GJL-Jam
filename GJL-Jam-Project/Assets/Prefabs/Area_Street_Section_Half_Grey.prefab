@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,7 +250,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -413,6 +413,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Area_Street_Section_Half_Grey
       objectReference: {fileID: 0}
+    - target: {fileID: 202673122581135685, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 202673122581135685, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 857445265678474399, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
       propertyPath: mountPoints.Array.size
       value: 1
@@ -425,6 +433,14 @@ PrefabInstance:
       propertyPath: _nextArea
       value: 
       objectReference: {fileID: 8826991049974578080, guid: 8a224d5b2686a72429f86946b3c37008, type: 3}
+    - target: {fileID: 2470210767470217457, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470210767470217457, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 7720081776581279997, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
       propertyPath: spawnPoints.Array.size
       value: 0

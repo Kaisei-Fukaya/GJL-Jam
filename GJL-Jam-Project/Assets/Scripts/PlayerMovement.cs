@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _moveSpeed = baseMoveSpeed;
         _momentumMultiplier = 1f;
-        Physics.gravity = new Vector3(0f, Physics.gravity.y * 2.8f, 0f);
+        Physics.gravity = new Vector3(0f, -27.468f, 0f);
     }
 
     private void OnDrawGizmos()

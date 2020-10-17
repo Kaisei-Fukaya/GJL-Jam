@@ -5,6 +5,7 @@ using UnityEngine;
 public class MenuInput : MonoBehaviour
 {
     [SerializeField] GameObject _settingsPanel;
+    [SerializeField] GameObject _mainPanel;
 
     const string SpeedCountKey = "speedCount";
 
@@ -16,6 +17,7 @@ public class MenuInput : MonoBehaviour
     public void SettingsPanelToggle(bool val)
     {
         _settingsPanel.SetActive(val);
+        _mainPanel.SetActive(!val);
     }
 
     public void ShowSpeedCount(bool toggle)
