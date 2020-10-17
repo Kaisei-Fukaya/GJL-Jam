@@ -8,6 +8,10 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance { get; private set; }
 
+    const string FirstTimeLoadKey = "firstTimeLoad";
+
+    public bool firstTimeLoad;
+
     private void Awake()
     {
         if (Instance == null)
@@ -18,6 +22,9 @@ public class MenuManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        firstTimeLoad = !PlayerPrefs.HasKey(FirstTimeLoadKey);
+        PlayerPrefs.SetString(FirstTimeLoadKey, "False");
     }
 
     public void ChangeScene(int index)

@@ -2,11 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerInput), typeof(Rigidbody))]
 public class PlayerCamera : MonoBehaviour
 {
     public float cameraSensitivity;
+    const string MouseSensitivityKey = "mouseSensitivity";
+
+    [SerializeField] Slider _mouseSensitivitySlider;
 
     [SerializeField] Camera _camera;
     [SerializeField] GameObject _viewModel;
@@ -37,6 +41,12 @@ public class PlayerCamera : MonoBehaviour
     {
         _pInput = GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody>();
+        if (!MenuManager.Instance.firstTimeLoad)
+        {
+            cameraSensitivity = Settings.Instance.LoadFloatValue(MouseSensitivityKey);
+        }
+        _mouseSensitivitySlider.value = cameraSensitivity;
+        _mouseSensitivitySlider.onValueChanged.AddListener(SetMouseSensitivity);
     }
 
     private void Update()
@@ -101,5 +111,11 @@ public class PlayerCamera : MonoBehaviour
     public void SetCameraTilt(float targetXRotation)
     {
         _tiltAngleTarget = targetXRotation;
+    }
+
+    public void SetMouseSensitivity(float value)
+    {
+        cameraSensitivity = value;
+        Settings.Instance.SaveFloatValue(MouseSensitivityKey, value);
     }
 }

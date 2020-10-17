@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float slopeDownForce;
     public float crouchSpeed;
     public LayerMask groundMask;
+    public AudioClip jumpSound;
     float _moveSpeed;
     float _momentumMultiplier;
     float _timeSinceLanded;
@@ -136,6 +137,9 @@ public class PlayerMovement : MonoBehaviour
 
             //Jump animation
             PlayerAnimationController.Instance.SetAnimatorTrigger("jump");
+
+            //Play sound
+            AudioManager.Instance.SetUpAudioSource(gameObject, jumpSound);
         }
 
 

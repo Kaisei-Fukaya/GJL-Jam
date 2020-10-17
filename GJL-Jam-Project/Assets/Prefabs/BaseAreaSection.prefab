@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 64
   m_IsActive: 1
 --- !u!4 &23149671871036807
 Transform:
@@ -283,6 +283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoints: []
   enemySpawnPoints: []
+  pickupsToSpawn: 3
+  enemiesToSpawn: 2
 --- !u!1 &23149673037992928
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +346,7 @@ GameObject:
   m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 64
   m_IsActive: 1
 --- !u!4 &2470210767470217457
 Transform:
@@ -500,7 +502,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 64
   m_IsActive: 1
 --- !u!4 &9002818557469404330
 Transform:
@@ -577,7 +579,7 @@ GameObject:
   m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 64
   m_IsActive: 1
 --- !u!4 &202673122581135685
 Transform:

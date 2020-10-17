@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] GameObject _settingsPanel, _speedCount;
+    [SerializeField] GameObject _settingsPanel, _mainPanel, _speedCount;
 
     const string SpeedCountKey = "speedCount";
 
@@ -16,9 +16,17 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame() => UIManager.Instance.SetPauseState(false);
 
-    public void OpenSettings() => _settingsPanel.SetActive(true);
+    public void OpenSettings()
+    {
+        _settingsPanel.SetActive(true);
+        _mainPanel.SetActive(false);
+    }
 
-    public void CloseSettings() => _settingsPanel.SetActive(false);
+    public void CloseSettings()
+    {
+        _settingsPanel.SetActive(false);
+        _mainPanel.SetActive(true);
+    }
 
     public void ShowSpeedCount(bool toggle)
     {
