@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   replenishValue: 10
   _effectOnPickup: {fileID: 100000, guid: 118e3f56a5212e849882f9a2fccadda7, type: 3}
+  _pickupSound: {fileID: 8300000, guid: da8b613833b5c2c4b9e6b4680b38f33c, type: 3}
 --- !u!1001 &1681269802976732879
 PrefabInstance:
   m_ObjectHideFlags: 0

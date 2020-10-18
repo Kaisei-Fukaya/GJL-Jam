@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -89,15 +90,34 @@ public class AudioManager : MonoBehaviour
         _defaultAudioSource.PlayOneShot(clip, volumeScale);
     }
 
-    public AudioSource SetUpAudioSource(GameObject owner, AudioClip clip, bool isMusic = false, bool playInstantly = true, float volume = 1f)
+    public AudioSource SetUpAudioSource(GameObject owner, AudioClip clip, bool isMusic = false, bool playInstantly = true, bool limitToOneSource = true, float volume = 1f, float spacialBlend = 0f)
     {
-        AudioSource source = owner.GetComponent<AudioSource>();
-        if(source == null)
+        AudioSource source;
+        if (limitToOneSource)
         {
-            source = owner.AddComponent<AudioSource>();
+            source = owner.GetComponent<AudioSource>();
+            if (source == null)
+            {
+                source = owner.AddComponent<AudioSource>();
+            }
+        }
+        else
+        {
+            //Use an source that is not playing, if all playing then use the first one
+            var sources = owner.GetComponents<AudioSource>();
+            source = sources[0];
+            foreach (var s in sources)
+            {
+                if (!s.isPlaying)
+                {
+                    source = s;
+                    break;
+                }
+            }
         }
         source.clip = clip;
         source.volume = volume;
+        source.spatialBlend = spacialBlend;
         if (isMusic)
         {
             source.outputAudioMixerGroup = musicBus;
@@ -125,5 +145,15 @@ public class AudioManager : MonoBehaviour
     {
         SFXVolume = volume;
         sfxBus.audioMixer.SetFloat("SFXVol", volume);
+    }
+
+    internal void SetUpAudioSource(object footstepObject, object slideSound)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal void SetUpAudioSource(GameObject footstepObject, object slideSound)
+    {
+        throw new NotImplementedException();
     }
 }

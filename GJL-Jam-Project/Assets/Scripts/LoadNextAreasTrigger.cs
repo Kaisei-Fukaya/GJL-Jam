@@ -19,7 +19,7 @@ public class LoadNextAreasTrigger : MonoBehaviour
     {
         invisWall.SetActive(false);
         _areaLoadManager = AreaLoadManager.Instance;
-        print(_areaLoadManager + " initialised");
+        //print(_areaLoadManager + " initialised");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,7 +34,7 @@ public class LoadNextAreasTrigger : MonoBehaviour
     {
         if (!_hasTriggered)
         {
-            print("triggerLoad " + enabled);
+            //print("triggerLoad " + enabled);
             foreach (var m in mountPoints)
             {
                 _areaLoadManager.LoadNextArea(m, _nextArea);

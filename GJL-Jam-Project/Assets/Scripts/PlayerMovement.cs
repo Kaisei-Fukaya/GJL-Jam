@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     PlayerInput _pInput;
     Rigidbody _rb;
     [SerializeField] float _cameraTiltDegrees = 5f;
+    [SerializeField] GameObject _footstepObject;
+    [SerializeField] AudioClip[] _slideSound;
 
     public static PlayerMovement Instance { get; private set; }
 
@@ -242,6 +244,7 @@ public class PlayerMovement : MonoBehaviour
         _isSliding = true;
         _frameOfSlideFlag = true;
         PlayerAnimationController.Instance.SetAnimatorParameter("slide", true);
+        AudioManager.Instance.SetUpAudioSource(_footstepObject, _slideSound[UnityEngine.Random.Range(0, _slideSound.Length)]);
         _targetScale = 0.6f;
     }
 

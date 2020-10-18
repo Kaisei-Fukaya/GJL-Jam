@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &909046044701707223
 Transform:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: a94103d882675824a8ace76e0f628cd8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3330b0af48e0e94419bfedc881f6a1c7, type: 2}
+      objectReference: {fileID: 2100002, guid: 47616bd0cda748d4cbedcfc908506b9d, type: 3}
     - target: {fileID: 919132149155446097, guid: a94103d882675824a8ace76e0f628cd8, type: 3}
       propertyPath: m_Name
       value: Tower1

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool GameGoing { get; private set; }
     public bool GameEnded { get; private set; } = false;
     public float yBound;
+    public bool finalStage = false;
 
     [SerializeField] CanvasGroup _blackScreen;
     [SerializeField] GameObject _gameOverPanel;
@@ -27,6 +28,11 @@ public class GameManager : MonoBehaviour
         }
 
         _gameOverPanel.SetActive(false);
+    }
+
+    private void Start()
+    {
+        lerpCoroutine = StartCoroutine(LerpValueOverTime(2, 0, _blackScreen, 5f));
     }
 
     private void Update()
@@ -47,9 +53,12 @@ public class GameManager : MonoBehaviour
 
         }
 
-        if (PlayerInput.Instance.transform.position.y < yBound && !GameEnded)
+        if (!finalStage)
         {
-            GameOver();
+            if (PlayerInput.Instance.transform.position.y < yBound && !GameEnded)
+            {
+                GameOver();
+            }
         }
     }
 
@@ -60,7 +69,7 @@ public class GameManager : MonoBehaviour
         GameGoing = true;
     }
 
-    //Eng game bring up menu
+    //End game bring up menu
     public void GameOver()
     {
         GameGoing = false;
@@ -69,6 +78,14 @@ public class GameManager : MonoBehaviour
         PlayerInput.Instance.enabled = false;
         UIManager.Instance.SetPauseState(true);
         MenuManager.Instance.SetPanelActiveState(_gameOverPanel, true);
+    }
+
+    //End game final stage
+    public void EndGameFinal()
+    {
+        GameGoing = false;
+        lerpCoroutine = StartCoroutine(LerpValueOverTime(0, 1, _blackScreen, 2f));
+        PlayerInput.Instance.enabled = false;
     }
 
 
