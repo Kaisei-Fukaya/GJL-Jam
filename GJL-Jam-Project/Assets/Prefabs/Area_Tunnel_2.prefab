@@ -672,6 +672,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1556697464380977107, guid: 366c35a3fc42fb04aa6afc0d784edc10, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2324410799439766310, guid: 366c35a3fc42fb04aa6afc0d784edc10, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -724,6 +728,26 @@ PrefabInstance:
       propertyPath: _nextArea
       value: 
       objectReference: {fileID: 5727111096771905707, guid: c89a1f7ea1cd9d14d9723714cbb642cb, type: 3}
+    - target: {fileID: 3167587595547566495, guid: 366c35a3fc42fb04aa6afc0d784edc10, type: 3}
+      propertyPath: _messages.Array.data[0]
+      value: What is happening to me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167587595547566495, guid: 366c35a3fc42fb04aa6afc0d784edc10, type: 3}
+      propertyPath: _messages.Array.data[1]
+      value: What is going on?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167587595547566495, guid: 366c35a3fc42fb04aa6afc0d784edc10, type: 3}
+      propertyPath: _messages.Array.data[2]
+      value: I have to keep running
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580625053318336035, guid: 366c35a3fc42fb04aa6afc0d784edc10, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6009374296232581302, guid: 366c35a3fc42fb04aa6afc0d784edc10, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 366c35a3fc42fb04aa6afc0d784edc10, type: 3}
 --- !u!4 &494715163646871853 stripped

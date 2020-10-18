@@ -11,6 +11,7 @@ public class PostProcessingController : MonoBehaviour
     Vignette _vignette;
     FilmGrain _noise;
     ChromaticAberration _chromaticAberration;
+    float _noiseIntensityTarget;
 
     private void Awake()
     {
@@ -32,6 +33,14 @@ public class PostProcessingController : MonoBehaviour
         _volume.profile.TryGet(out _noise);
     }
 
+    private void Update()
+    {
+        if(_noise.intensity.value != _noiseIntensityTarget)
+        {
+            _noise.intensity.value = Mathf.Lerp(_noise.intensity.value, _noiseIntensityTarget, Time.deltaTime);
+        }
+    }
+
     public void SetVignetteIntensity(float value)
     {
         _vignette.intensity.value = value;
@@ -44,7 +53,12 @@ public class PostProcessingController : MonoBehaviour
 
     public void SetNoiseIntensity(float value)
     {
-        _noise.intensity.value = value;
+        _noiseIntensityTarget = value;
+    }
+
+    public float GetNoiseIntensity()
+    {
+        return _noise.intensity.value;
     }
 
     public void SetChromaticAberrationIntensity(float value)

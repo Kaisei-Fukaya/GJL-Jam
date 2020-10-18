@@ -6,6 +6,8 @@ public class FinalStage : MonoBehaviour
 {
     GameManager _gameManager;
     PostProcessingController _postProcessingController;
+    bool _musicTriggered = false;
+    [SerializeField] string[] _finalMessages;
 
     private void Start()
     {
@@ -32,10 +34,25 @@ public class FinalStage : MonoBehaviour
         }
     }
 
+    public void PlayMessage()
+    {
+        MessageToPlayer.Instance.DisplayMessage(_finalMessages, 2f, 4f);
+    }
+
     public void ResetPostProcessingNoise()
     {
         PostProcessingController.Instance.SetNoiseIntensity(0f);
     }
+
+    public void SetMusicToFinal()
+    {
+        if (!_musicTriggered)
+        {
+            MusicPlayer.Instance.PlayMusic(1);
+            _musicTriggered = true;
+        }
+    }
+
 
     IEnumerator FadeOut()
     {
@@ -51,7 +68,7 @@ public class FinalStage : MonoBehaviour
             }
             else
             {
-                MenuManager.Instance.ChangeScene(1);
+                MenuManager.Instance.ChangeScene(2);
                 break;
             }
             yield return null;

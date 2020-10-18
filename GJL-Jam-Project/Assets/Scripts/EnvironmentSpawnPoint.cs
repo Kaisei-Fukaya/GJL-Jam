@@ -20,8 +20,8 @@ public class EnvironmentSpawnPoint : MonoBehaviour
         //print("AWAKE");
     }
 
-    
 
+    #if(UNITY_EDITOR)
     protected virtual void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -33,6 +33,7 @@ public class EnvironmentSpawnPoint : MonoBehaviour
             DrawMeshGizmo(m);
         }
     }
+    #endif
 
     public void SpawnObject(GameObject objectToSpawn)
     {

@@ -1716,6 +1716,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 857445265678474399, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: _messages.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 857445265678474399, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
       propertyPath: mountPoints.Array.data[0]
       value: 
       objectReference: {fileID: 2324410801081315042}
@@ -1723,6 +1727,18 @@ PrefabInstance:
       propertyPath: _nextArea
       value: 
       objectReference: {fileID: 3265131358465370097, guid: b9308830079ba5b45a5478bfc06e22e0, type: 3}
+    - target: {fileID: 857445265678474399, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: _messages.Array.data[0]
+      value: Keep Going
+      objectReference: {fileID: 0}
+    - target: {fileID: 857445265678474399, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: _messages.Array.data[1]
+      value: They follow
+      objectReference: {fileID: 0}
+    - target: {fileID: 857445265678474399, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: _messages.Array.data[2]
+      value: They can see me
+      objectReference: {fileID: 0}
     - target: {fileID: 2470210767470217457, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 60

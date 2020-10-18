@@ -13,6 +13,8 @@ public class LoadNextAreasTrigger : MonoBehaviour
 
     bool _hasTriggered = false;
 
+    [SerializeField] string[] _messages;
+
     [SerializeField] GameObject _nextArea;
 
     private void Start()
@@ -30,6 +32,12 @@ public class LoadNextAreasTrigger : MonoBehaviour
         }
     }
 
+    void IncrementNoise()
+    {
+        var pp = PostProcessingController.Instance;
+        pp.SetNoiseIntensity(pp.GetNoiseIntensity() + 0.02f);
+    }
+
     private void TriggerLoad()
     {
         if (!_hasTriggered)
@@ -42,6 +50,13 @@ public class LoadNextAreasTrigger : MonoBehaviour
 
             //Enable invis wall to stop backtracking
             invisWall.SetActive(true);
+
+            IncrementNoise();
+
+            if (_messages.Length != 0)
+            {
+                MessageToPlayer.Instance.DisplayMessageForSetTime(_messages, 2f, 2f, 10f);
+            }
 
             _hasTriggered = true;                        //Disable self
         }

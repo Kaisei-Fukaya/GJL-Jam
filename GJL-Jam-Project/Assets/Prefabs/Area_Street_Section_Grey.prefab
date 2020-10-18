@@ -812,6 +812,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a3cd22eceea5e8548b10cdb5d9b49a25, type: 2}
+    - target: {fileID: 23149671871036807, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 23149671871036807, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 175
+      objectReference: {fileID: 0}
     - target: {fileID: 23149671886657585, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -867,6 +875,18 @@ PrefabInstance:
     - target: {fileID: 23149672468094503, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
       propertyPath: m_Name
       value: Area_Street_Section_Grey
+      objectReference: {fileID: 0}
+    - target: {fileID: 23149673037992931, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 202673122581135685, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 202673122581135685, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 857445265678474399, guid: 5e9ab522dca81e344938723e741380dd, type: 3}
       propertyPath: mountPoints.Array.size
