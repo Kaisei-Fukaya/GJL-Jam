@@ -47,7 +47,7 @@ public class PlayerCamera : MonoBehaviour
         }
         if(cameraSensitivity == 0f)
         {
-            cameraSensitivity = 4f;
+            cameraSensitivity = 2f;
         }
         _mouseSensitivitySlider.value = cameraSensitivity;
         _mouseSensitivitySlider.onValueChanged.AddListener(SetMouseSensitivity);
